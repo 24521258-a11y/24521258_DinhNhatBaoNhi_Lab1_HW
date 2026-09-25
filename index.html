@@ -2,97 +2,98 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinh Nhat Bao Nhi | Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="skeleton.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Dinh Nhat Bao Nhi | Developer Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="skeleton.css">
 </head>
 
 <body>
 
-    <a href="#main-content" class="skip-link">
-        Skip to main content
-    </a>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">
+    Skip to main content
+  </a>
 
-    <header role="banner">
-        <h1>Dinh Nhat Bao Nhi</h1>
-        <button
-  id="theme-toggle"
-  type="button"
-  aria-pressed="false"
->
-  Dark Mode
-</button>
-    </header>
+  <!-- Header Landmark -->
+  <header role="banner">
 
-    <nav role="navigation" aria-label="Primary">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
+    <h1>Dinh Nhat Bao Nhi</h1>
 
-    <main id="main-content" role="main">
+    <button
+      id="theme-toggle"
+      type="button"
+      aria-pressed="false"
+    >
+      Dark Mode
+    </button>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Welcome to my developer portfolio.
-            </p>
-        </section>
+  </header>
 
-        <section id="projects">
-  <h2>Featured Projects</h2>
+  <!-- Primary Navigation -->
+  <nav
+    role="navigation"
+    aria-label="Primary"
+  >
+    <ul>
+      <li>
+        <a href="#about">About</a>
+      </li>
 
- <section id="project-container" aria-label="Project list">
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+    </ul>
+  </nav>
 
-  <article class="skeleton-item" aria-hidden="true"></article>
+  <!-- Main Content -->
+  <main
+    id="main-content"
+    role="main"
+  >
 
-  <article class="project-card">
-    <h3>Accessible Portfolio</h3>
+    <!-- About Section -->
+    <section id="about">
 
-    <p>
-      A responsive developer portfolio built with semantic HTML5
-      and accessibility best practices.
-    </p>
+      <h2>About Me</h2>
 
-    <footer class="badge-group">
-      <span class="badge">HTML5</span>
-      <span class="badge">A11y</span>
-    </footer>
-  </article>
+      <p>
+        Welcome to my developer portfolio.
+      </p>
 
-  <article class="project-card">
-    <h3>Responsive Grid System</h3>
+    </section>
 
-    <p>
-      A flexible two-dimensional layout created with modern CSS Grid.
-    </p>
+    <!-- Projects Section -->
+    <section id="projects">
 
-    <footer class="badge-group">
-      <span class="badge">CSS Grid</span>
-      <span class="badge">Responsive</span>
-    </footer>
-  </article>
+      <h2>Featured Projects</h2>
 
-  <article class="project-card">
-    <h3>Theme Engine</h3>
+      <!--
+        Exercise 3:
+        JavaScript will render the component states here:
+        loading, live, empty and error.
+      -->
+      <section
+        id="project-container"
+        aria-label="Project list"
+        aria-live="polite"
+      >
+      </section>
 
-    <p>
-      A light and dark theme system using modern JavaScript.
-    </p>
+    </section>
 
-    <footer class="badge-group">
-      <span class="badge">JavaScript</span>
-      <span class="badge">localStorage</span>
-    </footer>
-  </article>
+  </main>
 
-</section>
+  <!-- JavaScript -->
+  <script src="app.js"></script>
 
-    </main>
-
-<script src="app.js"></script>
 </body>
+
 </html>
