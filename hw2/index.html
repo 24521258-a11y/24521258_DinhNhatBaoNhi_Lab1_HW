@@ -9,12 +9,33 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      script-src 'self';
+      style-src 'self';
+      img-src 'self' data:;
+      font-src 'self';
+      media-src 'self';
+      connect-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    "
+  >
+
   <title>Drum Kit Engine</title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <script
+    src="app.js"
+    defer
+  ></script>
 </head>
 
 <body>
@@ -23,7 +44,8 @@
     <h1>Drum Kit Engine</h1>
 
     <p>
-      Press the keyboard keys or click a drum pad to play a sound.
+      Click a drum pad to play a sound.
+      Keyboard controls will be added in the next step.
     </p>
   </header>
 
