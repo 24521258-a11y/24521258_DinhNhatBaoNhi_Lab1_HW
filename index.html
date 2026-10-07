@@ -9,25 +9,40 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Production portfolio of Dinh Nhat Bao Nhi, an Information Systems student focused on accessible and responsive web development."
+  >
+
   <!-- HW1-M3: Strict Content Security Policy -->
   <meta
-  http-equiv="Content-Security-Policy"
-  content="
-    default-src 'self';
-    script-src 'self';
-    style-src 'self';
-    img-src 'self' data:;
-    font-src 'self';
-    connect-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-  "
->
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      script-src 'self';
+      style-src 'self';
+      img-src 'self' data:;
+      font-src 'self';
+      connect-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    "
+  >
+
+  <!-- HW1-M4: Lightweight inline SVG favicon -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232563eb'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='30' font-family='Arial,sans-serif' font-weight='700' fill='white'%3EN%3C/text%3E%3C/svg%3E"
+    type="image/svg+xml"
+  >
 
   <title>Dinh Nhat Bao Nhi | Production Portfolio</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
 
 <body>
@@ -43,7 +58,7 @@
     <h1>Dinh Nhat Bao Nhi</h1>
 
     <p>
-      Information Systems Student & Web Developer
+      Information Systems Student &amp; Web Developer
     </p>
   </header>
 
@@ -176,6 +191,7 @@
           id="name"
           name="name"
           type="text"
+          autocomplete="name"
           required
         >
 
@@ -187,6 +203,7 @@
           id="email"
           name="email"
           type="email"
+          autocomplete="email"
           required
         >
 
@@ -198,6 +215,7 @@
           id="message"
           name="message"
           rows="5"
+          autocomplete="off"
           required
         ></textarea>
 
