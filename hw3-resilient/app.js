@@ -101,3 +101,96 @@ class CountdownEngine {
   );
   
   countdownEngine.start();
+
+  /**
+ * Explicit form state machine.
+ *
+ * Allowed states:
+ * Idle -> Submitting -> Success
+ * Idle -> Submitting -> Error
+ */
+class FormStateMachine {
+    constructor(form, submitButton, statusElement) {
+      this.form = form;
+      this.submitButton = submitButton;
+      this.statusElement = statusElement;
+  
+      this.state = "Idle";
+    }
+  
+    setState(nextState) {
+      this.state = nextState;
+      this.render();
+    }
+  
+    render() {
+      switch (this.state) {
+        case "Idle":
+          this.submitButton.disabled = false;
+          this.statusElement.textContent = "";
+          break;
+  
+        case "Submitting":
+          this.submitButton.disabled = true;
+          this.statusElement.textContent = "Submitting...";
+          break;
+  
+        case "Success":
+          this.submitButton.disabled = false;
+          this.statusElement.textContent =
+            "Registration submitted successfully.";
+          break;
+  
+        case "Error":
+          this.submitButton.disabled = false;
+          this.statusElement.textContent =
+            "Submission failed. Please try again.";
+          break;
+  
+        default:
+          throw new Error(`Unknown form state: ${this.state}`);
+      }
+    }
+  
+    async submit() {
+      if (this.state !== "Idle") {
+        return;
+      }
+  
+      this.setState("Submitting");
+  
+      try {
+        await this.sendRequest();
+  
+        this.setState("Success");
+      } catch (error) {
+        console.error("Form submission failed:", error);
+  
+        this.setState("Error");
+      }
+    }
+  
+    sendRequest() {
+        return new Promise((resolve) => {
+          window.setTimeout(() => {
+            resolve();
+          }, 1000);
+        });
+      }
+    }
+  
+  const eventForm = document.querySelector("#event-form");
+  const submitButton = document.querySelector("#submit-button");
+  const formStatus = document.querySelector("#form-status");
+  
+  const formStateMachine = new FormStateMachine(
+    eventForm,
+    submitButton,
+    formStatus
+  );
+  
+  eventForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+  
+    formStateMachine.submit();
+  });
