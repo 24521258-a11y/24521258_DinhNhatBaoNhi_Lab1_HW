@@ -16,6 +16,7 @@
 
 <body>
 
+  <!-- Skip Link -->
   <a
     class="skip-link"
     href="#main-content"
@@ -23,6 +24,7 @@
     Skip to main content
   </a>
 
+  <!-- Header -->
   <header class="site-header">
     <h1>Dinh Nhat Bao Nhi</h1>
 
@@ -31,6 +33,7 @@
     </p>
   </header>
 
+  <!-- Primary Navigation -->
   <nav
     class="primary-nav"
     aria-label="Primary navigation"
@@ -54,13 +57,20 @@
     </ul>
   </nav>
 
-  <main id="main-content">
+  <!-- Main Content -->
+  <main
+    id="main-content"
+    tabindex="-1"
+  >
 
+    <!-- About -->
     <section
       id="about"
       aria-labelledby="about-title"
     >
-      <h2 id="about-title">About Me</h2>
+      <h2 id="about-title">
+        About Me
+      </h2>
 
       <p>
         I am an Information Systems student interested in modern,
@@ -68,11 +78,14 @@
       </p>
     </section>
 
+    <!-- Skills -->
     <section
       id="skills"
       aria-labelledby="skills-title"
     >
-      <h2 id="skills-title">Skills</h2>
+      <h2 id="skills-title">
+        Skills
+      </h2>
 
       <ul class="skills-list">
         <li>Semantic HTML5</li>
@@ -82,11 +95,14 @@
       </ul>
     </section>
 
+    <!-- Projects -->
     <section
       id="projects"
       aria-labelledby="projects-title"
     >
-      <h2 id="projects-title">Projects</h2>
+      <h2 id="projects-title">
+        Projects
+      </h2>
 
       <section
         class="project-grid"
@@ -94,39 +110,53 @@
       >
 
         <article class="project-card">
-          <h3>Accessible Portfolio</h3>
+          <h3>
+            Accessible Portfolio
+          </h3>
 
           <p>
             A semantic and keyboard-accessible developer portfolio.
           </p>
 
-          <a href="#">
-            View project
+          <a
+            href="#contact"
+            aria-label="Contact about Accessible Portfolio project"
+          >
+            Contact about project
           </a>
         </article>
 
         <article class="project-card">
-          <h3>Responsive Web Layout</h3>
+          <h3>
+            Responsive Web Layout
+          </h3>
 
           <p>
             A responsive interface built with modern CSS Grid.
           </p>
 
-          <a href="#">
-            View project
+          <a
+            href="#contact"
+            aria-label="Contact about Responsive Web Layout project"
+          >
+            Contact about project
           </a>
         </article>
 
       </section>
     </section>
 
+    <!-- Contact -->
     <section
       id="contact"
       aria-labelledby="contact-title"
     >
-      <h2 id="contact-title">Contact</h2>
+      <h2 id="contact-title">
+        Contact
+      </h2>
 
       <form>
+
         <label for="name">
           Full Name
         </label>
@@ -163,11 +193,13 @@
         <button type="submit">
           Send Message
         </button>
+
       </form>
     </section>
 
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <p>
       © 2026 Dinh Nhat Bao Nhi
