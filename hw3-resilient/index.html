@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Resilient Event Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Resilient Event Hub</h1>
+      <p>Register for our upcoming event.</p>
+    </header>
+
+    <section aria-labelledby="countdown-title">
+      <h2 id="countdown-title">Event Countdown</h2>
+
+      <p id="countdown" aria-live="polite">
+        Loading countdown...
+      </p>
+    </section>
+
+    <section aria-labelledby="registration-title">
+      <h2 id="registration-title">Registration</h2>
+
+      <form id="event-form">
+        <div>
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            minlength="2"
+          >
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+          >
+        </div>
+
+        <button
+          id="submit-button"
+          type="submit"
+        >
+          Submit
+        </button>
+
+        <p
+          id="form-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
