@@ -32,12 +32,15 @@ class CountdownEngine {
       );
   
       const days = Math.floor(totalSeconds / 86400);
+  
       const hours = Math.floor(
         (totalSeconds % 86400) / 3600
       );
+  
       const minutes = Math.floor(
         (totalSeconds % 3600) / 60
       );
+  
       const seconds = totalSeconds % 60;
   
       return {
@@ -87,12 +90,13 @@ class CountdownEngine {
   }
   
   
-  const countdownElement = document.querySelector("#countdown");
-  
   /*
-   * UTC ISO 8601 event timestamp.
+   * Countdown setup.
+   *
    * The "Z" suffix explicitly indicates UTC.
    */
+  const countdownElement = document.querySelector("#countdown");
+  
   const eventTargetTimestamp = "2026-12-31T23:59:59Z";
   
   const countdownEngine = new CountdownEngine(
@@ -101,21 +105,24 @@ class CountdownEngine {
   );
   
   countdownEngine.start();
-
+  
+  
   /**
- * Explicit form state machine.
- *
- * Allowed states:
- * Idle -> Submitting -> Success
- * Idle -> Submitting -> Error
- */
-class FormStateMachine {
+   * Explicit form state machine.
+   *
+   * Allowed states:
+   *
+   * Idle -> Submitting -> Success
+   * Idle -> Submitting -> Error
+   */
+  class FormStateMachine {
     constructor(form, submitButton, statusElement) {
       this.form = form;
       this.submitButton = submitButton;
       this.statusElement = statusElement;
   
       this.state = "Idle";
+      this.userName = "";
     }
   
     setState(nextState) {
@@ -137,8 +144,10 @@ class FormStateMachine {
   
         case "Success":
           this.submitButton.disabled = false;
+  
           this.statusElement.textContent =
-            "Registration submitted successfully.";
+            `Registration submitted successfully for ${this.userName}.`;
+  
           break;
   
         case "Error":
@@ -148,19 +157,27 @@ class FormStateMachine {
           break;
   
         default:
-          throw new Error(`Unknown form state: ${this.state}`);
+          throw new Error(
+            `Unknown form state: ${this.state}`
+          );
       }
     }
   
-    async submit() {
-      if (this.state !== "Idle") {
+    async submit(name, email) {
+      /*
+       * Prevent duplicate submissions while a request
+       * is already being processed.
+       */
+      if (this.state === "Submitting") {
         return;
       }
+  
+      this.userName = name;
   
       this.setState("Submitting");
   
       try {
-        await this.sendRequest();
+        await this.sendRequest(name, email);
   
         this.setState("Success");
       } catch (error) {
@@ -170,15 +187,24 @@ class FormStateMachine {
       }
     }
   
-    sendRequest() {
-        return new Promise((resolve) => {
-          window.setTimeout(() => {
-            resolve();
-          }, 1000);
-        });
-      }
-    }
+    sendRequest(name, email) {
+      return new Promise((resolve) => {
+        window.setTimeout(() => {
+          console.log("Submitted:", {
+            name: name,
+            email: email
+          });
   
+          resolve();
+        }, 1000);
+      });
+    }
+  }
+  
+  
+  /*
+   * Form setup.
+   */
   const eventForm = document.querySelector("#event-form");
   const submitButton = document.querySelector("#submit-button");
   const formStatus = document.querySelector("#form-status");
@@ -189,8 +215,20 @@ class FormStateMachine {
     formStatus
   );
   
+  
+  /**
+   * Handles form submission.
+   *
+   * FormData retrieves user input without inserting
+   * it into the page as HTML.
+   */
   eventForm.addEventListener("submit", (event) => {
     event.preventDefault();
   
-    formStateMachine.submit();
+    const formData = new FormData(eventForm);
+  
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+  
+    formStateMachine.submit(name, email);
   });
