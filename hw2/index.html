@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Drum Kit Engine</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1>Drum Kit Engine</h1>
+
+    <p>
+      Press the keyboard keys or click a drum pad to play a sound.
+    </p>
+  </header>
+
+  <main>
+
+    <section
+      class="drum-kit"
+      aria-labelledby="drum-kit-title"
+    >
+
+      <h2 id="drum-kit-title">
+        Drum Pads
+      </h2>
+
+      <div class="drum-grid">
+
+        <button
+          type="button"
+          class="drum-pad"
+          data-key="a"
+          data-sound="sounds/kick.wav"
+          aria-label="Kick drum, keyboard key A"
+        >
+          <span class="key-label">A</span>
+          <span class="sound-label">Kick</span>
+        </button>
+
+        <button
+          type="button"
+          class="drum-pad"
+          data-key="s"
+          data-sound="sounds/snare.wav"
+          aria-label="Snare drum, keyboard key S"
+        >
+          <span class="key-label">S</span>
+          <span class="sound-label">Snare</span>
+        </button>
+
+        <button
+          type="button"
+          class="drum-pad"
+          data-key="d"
+          data-sound="sounds/hihat.wav"
+          aria-label="Hi-hat, keyboard key D"
+        >
+          <span class="key-label">D</span>
+          <span class="sound-label">Hi-Hat</span>
+        </button>
+
+        <button
+          type="button"
+          class="drum-pad"
+          data-key="f"
+          data-sound="sounds/clap.wav"
+          aria-label="Clap, keyboard key F"
+        >
+          <span class="key-label">F</span>
+          <span class="sound-label">Clap</span>
+        </button>
+
+        <button
+          type="button"
+          class="drum-pad"
+          data-key="g"
+          data-sound="sounds/tom.wav"
+          aria-label="Tom drum, keyboard key G"
+        >
+          <span class="key-label">G</span>
+          <span class="sound-label">Tom</span>
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      HW2 — Contract-First Drum Kit Engine
+    </p>
+  </footer>
+
+</body>
+
+</html>
